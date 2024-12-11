@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/screens/animate_screen.dart';
+import 'package:helloworld/screens/card_screen.dart';
 import 'package:helloworld/screens/list_card_screen.dart';
 import 'package:helloworld/screens/test_screen.dart';
 import 'package:helloworld/screens/webview_screen.dart';
@@ -16,10 +17,11 @@ class _NavigationState extends State<Navigation> {
 
   // Các trang ứng với từng tab
   final List<Widget> pages = [
+    const ListCardScreen(),
+    const CardScreen(),
     const WebView(),
     const Animate(),
     const Test(),
-    const ListCardScreen(),
     const Center(child: Text('Messages Page')),
   ];
 
@@ -39,6 +41,14 @@ class _NavigationState extends State<Navigation> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
+            icon: Icon(Icons.message),
+            label: 'List Card Screen',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.message),
+            label: 'Card Screen',
+          ),
+          NavigationDestination(
             selectedIcon: Icon(Icons.home),
             icon: Icon(Icons.home_outlined),
             label: 'WebView',
@@ -50,10 +60,6 @@ class _NavigationState extends State<Navigation> {
           NavigationDestination(
             icon: Icon(Icons.message),
             label: 'Test Screen',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.message),
-            label: 'List Card Screen',
           ),
         ],
       ),
