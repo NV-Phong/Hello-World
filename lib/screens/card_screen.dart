@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
 
-class CardScreen extends StatefulWidget {
-  const CardScreen({super.key});
+class CardScreen extends StatelessWidget {
+  final Map<String, String> employee;
 
-  @override
-  _CardScreenState createState() => _CardScreenState();
-}
+  // Accept employee data through the constructor
+  const CardScreen({super.key, required this.employee});
 
-class _CardScreenState extends State<CardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Credit card ui"),
+        title: const Text("Credit card UI"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // _getWhiteCard(false),
             const SizedBox(
               height: 20,
             ),
-            _getWhiteCard(true)
+            _getWhiteCard(context, true),
           ],
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
-  Widget _getWhiteCard(bool isGrey) {
+  Widget _getWhiteCard(BuildContext context, bool isGrey) {
     return Container(
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           color: isGrey ? Color(0xFF292929) : Colors.white,
+          image: const DecorationImage(
+            image:
+                AssetImage('assets/background.jpg'), // Đường dẫn tới hình ảnh
+            fit: BoxFit.cover,
+          ),
           boxShadow: [
             BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
@@ -43,62 +44,41 @@ class _CardScreenState extends State<CardScreen> {
                 blurRadius: 4,
                 offset: Offset(0, 1))
           ]),
-      width: MediaQuery.of(context).size.width * .9,
-      child: const Column(
+      width: 360,
+      child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Image.asset("assets/images/card_logo.png", height: 30),
               Text(
                 "Trust Bank",
                 style: TextStyle(
                     fontSize: 20,
                     fontFamily: "Roboto",
                     color: Color(0xFF707070)),
-              )
+              ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "1234",
-                style: TextStyle(
+                "${employee['id']}", // Use employee['id'] here
+                style: const TextStyle(
                     fontSize: 24,
                     fontFamily: "Roboto",
                     color: Color(0xFF707070)),
               ),
-              Text(
-                "1234",
-                style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
-              ),
-              Text(
-                "1234",
-                style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
-              ),
-              Text(
-                "1234",
-                style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
-              ),
+              // You can add more Text widgets for other parts of the card here if needed
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
@@ -117,21 +97,21 @@ class _CardScreenState extends State<CardScreen> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 2,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "DEVELOPER REYAZ",
-                style: TextStyle(
+                "${employee['name']}",
+                style: const TextStyle(
                     fontSize: 18,
                     fontFamily: "Roboto",
                     color: Color(0xFF707070)),
               ),
-              Text(
-                "02/2022",
+              const Text(
+                "03/2024",
                 style: TextStyle(
                     fontSize: 18,
                     fontFamily: "Roboto",
