@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/screens/animate_screen.dart';
+import 'package:helloworld/screens/list_card_screen.dart';
+import 'package:helloworld/screens/test_screen.dart';
 import 'package:helloworld/screens/webview_screen.dart';
-import 'package:helloworld/screens/webviews_screen.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -17,8 +18,9 @@ class _NavigationState extends State<Navigation> {
   final List<Widget> pages = [
     const WebView(),
     const Animate(),
-    const WebViewDemo(),
-    const Center(child: Text('Messages Page')), // Trang Messages
+    const Test(),
+    const ListCardScreen(),
+    const Center(child: Text('Messages Page')),
   ];
 
   @override
@@ -47,7 +49,11 @@ class _NavigationState extends State<Navigation> {
           ),
           NavigationDestination(
             icon: Icon(Icons.message),
-            label: 'WebView Demo',
+            label: 'Test Screen',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.message),
+            label: 'List Card Screen',
           ),
         ],
       ),

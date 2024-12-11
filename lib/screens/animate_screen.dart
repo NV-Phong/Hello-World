@@ -17,6 +17,7 @@ class _AnimateState extends State<Animate> with TickerProviderStateMixin {
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
+      // value: 0.5,
     );
 
     // Bắt đầu animation khi màn hình được hiển thị
@@ -35,12 +36,18 @@ class _AnimateState extends State<Animate> with TickerProviderStateMixin {
     _controller.forward();
   }
 
+  // void _changeRotation(double value) {
+  //   setState(() {
+  //     _controller.value = value;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Animate Screen'),
-      ),
+          // title: const Text('Animate Screen'),
+          ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,6 +59,7 @@ class _AnimateState extends State<Animate> with TickerProviderStateMixin {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ).animate().scale(duration: 500.ms),
             ),
+
             const SizedBox(height: 20),
             SlideTransition(
               position: _controller.drive(
@@ -65,6 +73,7 @@ class _AnimateState extends State<Animate> with TickerProviderStateMixin {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
+
             const SizedBox(height: 20),
             RotationTransition(
               turns: _controller,
@@ -87,6 +96,7 @@ class _AnimateState extends State<Animate> with TickerProviderStateMixin {
                 .animate(
               onPlay: (controller) => controller.repeat(),
             )
+                //skeleton
                 .shimmer(
               colors: [
                 Colors.red,
