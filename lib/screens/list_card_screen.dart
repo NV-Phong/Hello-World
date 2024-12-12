@@ -11,21 +11,21 @@ class ListCardScreen extends StatefulWidget {
 class _ListCardScreenState extends State<ListCardScreen> {
   final List<Map<String, String>> employees = [
     {
-      'name': 'Nguyễn Văn Phong',
+      'name': 'NGUYỄN VĂN PHONG',
       'id': '4353 2354 2353 2453',
       'other': 'DT : 03612731823',
       'image':
           'assets/The Girl [ 3 ].jpg' // Add an image field for each employee
     },
     {
-      'name': 'Nguyễn Thành Nhân',
+      'name': 'NGUYỄN THÀNH NHÂN',
       'id': '4666 3534 3525 1356',
       'other': 'DT : 03612731823',
       'image':
           'assets/kevin-decatoire-helldivers-2-kevin-decatoire-05.jpg' // Add an image field
     },
     {
-      'name': 'Phạm Văn Phước',
+      'name': 'PHẠM VĂN PHƯỚC',
       'id': '1345 3355 2456 2345',
       'other': 'DT : 03612731823',
       'image': 'assets/wilbert-oosterom-sequence-01.png' // Add an image field

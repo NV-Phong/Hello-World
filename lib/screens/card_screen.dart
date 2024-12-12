@@ -30,11 +30,12 @@ class CardScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: isGrey ? Color(0xFF292929) : Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          color: isGrey ? const Color(0xFF292929) : Colors.white,
           image: const DecorationImage(
-            image:
-                AssetImage('assets/background.jpg'), // Đường dẫn tới hình ảnh
+            image: AssetImage(
+                // 'assets/Group 1524 (3).png'), // Đường dẫn tới hình ảnh
+                'assets/Group 1524 (5).png'), // Đường dẫn tới hình ảnh
             fit: BoxFit.cover,
           ),
           boxShadow: [
@@ -42,20 +43,31 @@ class CardScreen extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 4,
-                offset: Offset(0, 1))
+                offset: const Offset(0, 1))
           ]),
-      width: 360,
+      width: 380,
       child: Column(
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Trust Bank",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/logo.png', // Đường dẫn đến hình ảnh trong assets
+                    width: 24, // Đặt kích thước cho hình ảnh nếu cần
+                    height: 24,
+                  ),
+                  const SizedBox(width: 8), // Khoảng cách giữa hình ảnh và text
+                  const Text(
+                    "AGRIBANK",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: "Roboto",
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -79,21 +91,39 @@ class CardScreen extends StatelessWidget {
             height: 30,
           ),
           const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment:
+                MainAxisAlignment.center, // Căn giữa theo chiều ngang
             children: [
-              Text(
-                "CARD HOLDER",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
+              Column(
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Căn giữa theo chiều dọc
+                children: [
+                  Text(
+                    "VALID",
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontFamily: "Roboto",
+                      color: Color(0xFFF5F5F5),
+                    ),
+                  ),
+                  Text(
+                    "THRU",
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontFamily: "Roboto",
+                      color: Color(0xFFF5F5F5),
+                    ),
+                  ),
+                ],
               ),
+              SizedBox(width: 8), // Thêm khoảng cách giữa "THRU" và "MM/YY"
               Text(
-                "VALID THRU",
+                "MM/YY",
                 style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
+                  fontSize: 18,
+                  fontFamily: "Roboto",
+                  color: Color.fromARGB(255, 48, 48, 48),
+                ),
               ),
             ],
           ),
@@ -103,6 +133,13 @@ class CardScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // Text(
+              //   "VALID THRU",
+              //   style: TextStyle(
+              //       fontSize: 12,
+              //       fontFamily: "Roboto",
+              //       color: Color(0xFF707070)),
+              // ),
               Text(
                 "${employee['name']}",
                 style: const TextStyle(
@@ -110,13 +147,13 @@ class CardScreen extends StatelessWidget {
                     fontFamily: "Roboto",
                     color: Color(0xFF707070)),
               ),
-              const Text(
-                "03/2024",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: "Roboto",
-                    color: Color(0xFF707070)),
-              ),
+              // const Text(
+              //   "03/2024",
+              //   style: TextStyle(
+              //       fontSize: 18,
+              //       fontFamily: "Roboto",
+              //       color: Color(0xFF707070)),
+              // ),
             ],
           ),
         ],
